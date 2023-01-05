@@ -1,17 +1,25 @@
 {
-	"name": "marketplace",
-	"private": true,
-	"version": "0.0.0",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview",
-		"lint": "prettier --write ."
-	},
-	"dependencies": {
-		"@emotion/react": "11.10.5",
-		"@emotion/styled": "11.10.5",
-		"@mui/material": "5.10.17"
-	}
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "prettier --write ."
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
+    "@mui/material": "5.11.3",
+    "react-query": "3.39.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react": "^4.0.0"
+  }
 }

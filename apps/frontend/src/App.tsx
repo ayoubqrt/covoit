@@ -1,24 +1,18 @@
-import { FC, useState } from 'react';
-import './App.css';
+import { type FC, useEffect } from "react";
+import { initClient } from "@ts-rest/core";
+import { contract } from "@api/contract";
 
-type Props = {
-	name?: string;
-};
+const client = initClient(contract, {
+  baseUrl: "http://localhost:3000",
+  baseHeaders: {},
+});
 
-export const App: FC<Props> = (props) => {
-	const { name } = props;
-	const [count, setCount] = useState(0);
+export const App: FC = () => {
+  useEffect(() => {
+    client.hello().then((res) => {
+      console.log(res);
+    });
+  }, []);
 
-	const handleClick = () => {
-		setCount((count) => count + 1);
-	};
-
-	return (
-		<div className="App">
-			{name ? <h1>Hello {name}</h1> : <h1>Hello World</h1>}
-			<div className="card">
-				<button onClick={() => handleClick()}>count is {count}</button>
-			</div>
-		</div>
-	);
+  return <div>eeeee</div>;
 };

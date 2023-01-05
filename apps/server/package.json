@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsup-node src/main.ts",
+    "build-dev": "pnpm run build && NODE_ENV=development node --inspect dist/main.js",
+    "dev": "tsup-node src/main.ts --watch --on-success \"clear && node --enable-source-maps dist/main.js\"",
+    "start": "NODE_ENV=production node --inspect dist/main.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/cors": "^8.3.0",
+    "@mikro-orm/core": "^5.7.11",
+    "@mikro-orm/postgresql": "^5.7.11",
+    "@ts-rest/fastify": "^3.25.1",
+    "fastify": "4.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "nodemon": "^2.0.22"
+  }
+}

@@ -1,0 +1,31 @@
+version: "3"
+name: "Neighbook"
+services:
+  frontend:
+    image: pnpm
+    working_dir: /app
+    command: pnpm --filter frontend run dev
+    build:
+      context: .
+      dockerfile: docker/pnpm.Dockerfile
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+    ports:
+      - 5173:5173
+    depends_on:
+      - marketplace
+  marketplace:
+    image: pnpm
+    working_dir: /app
+    command: pnpm --filter marketplace run dev
+    build:
+      context: .
+      dockerfile: docker/pnpm.Dockerfile
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+    ports:
+      - 3002:3002
